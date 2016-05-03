@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="Vertigo.Coords"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Vertigo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+            <maps:MapControl  Grid.Column="0" Grid.Row="0"  Name="mapControl"  ZoomLevelChanged="ZoomLevelChanged" />
+             <TextBlock Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" x:Name="LocationDisabledMessage" FontStyle="Italic" Visibility="Collapsed">
+                    <Run Text="Application is not able to get location data. Go to " />
+                    <Hyperlink NavigateUri="ms-settings:privacy-location">
+                        <Run Text="Settings" />
+                    </Hyperlink>
+                    <Run Text=" to check the location permissions."/>
+            </TextBlock>
+
+
+
+        <!--ZoomLevel="{Binding ElementName=zoomSlider,Path=Value, Mode=TwoWay}"
+                                     Heading="{Binding ElementName=headingSlider,Path=Value, Mode=TwoWay}"
+                                     DesiredPitch="{Binding ElementName=desiredPitchSlider,Path=Value, Mode=TwoWay}"    
+                                     HorizontalAlignment="Left"-->
+
+        <Grid Grid.RowSpan="2" Grid.Column="1" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.8*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5"  Click="ClickAdd">
+                        <SymbolIcon Symbol="57763"/>
+                    </Button>
+                    <Slider Grid.Row="1" Grid.Column="0" Name="zoomLevel" Orientation="Vertical" TickPlacement="Outside" ValueChanged="ZoomLevelHendler" HorizontalAlignment="Center" />
+                    <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" Click="ClickMinus">
+                        <SymbolIcon Symbol="57764"/>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0" Padding="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <ToggleButton Name="CenterPin" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" KeyDown="KeyDownPin" Height="40">
+                        <SymbolIcon Symbol="57665"/>
+                    </ToggleButton>
+                    <ToggleButton Name="TrackingButton" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" KeyDown="KeyDownPin" Height="40" Click="TrackingInit">
+                        <SymbolIcon Symbol="57640"/>
+                    </ToggleButton>
+                </Grid>
+            </Grid>
+
+
+
+        </Grid>
+
+    </Grid>
+</Page>
