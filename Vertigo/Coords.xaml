@@ -18,14 +18,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-            <maps:MapControl  Grid.Column="0" Grid.Row="0"  Name="mapControl"  ZoomLevelChanged="ZoomLevelChanged" />
-             <TextBlock Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" x:Name="LocationDisabledMessage" FontStyle="Italic" Visibility="Collapsed">
+        <maps:MapControl  Grid.Column="0" Grid.Row="0"  Name="mapControl"  ZoomLevelChanged="ZoomLevelChanged" />
+        <TextBlock Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" x:Name="LocationDisabledMessage" FontStyle="Italic" Visibility="Collapsed" Foreground="#FF706565" Opacity="0.8">
                     <Run Text="Application is not able to get location data. Go to " />
                     <Hyperlink NavigateUri="ms-settings:privacy-location">
                         <Run Text="Settings" />
                     </Hyperlink>
                     <Run Text=" to check the location permissions."/>
-            </TextBlock>
+        </TextBlock>
 
 
 
@@ -72,7 +72,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
 
-                    <ToggleButton Name="CenterPin" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" KeyDown="KeyDownPin" Height="40">
+                    <ToggleButton Name="CenterPin" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" KeyDown="KeyDownPin" Height="40" Margin="0,0,0,-10.333" d:LayoutOverrides="Height">
                         <SymbolIcon Symbol="57665"/>
                     </ToggleButton>
                     <ToggleButton Name="TrackingButton" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" KeyDown="KeyDownPin" Height="40" Click="TrackingInit">

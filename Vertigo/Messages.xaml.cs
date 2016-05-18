@@ -25,6 +25,13 @@ namespace Vertigo
         public Messages()
         {
             this.InitializeComponent();
+            MessageList.Items.Add(new Message()
+            {
+                Title="Всё плохо",
+                Decription = "Преобразует заданное строковое представление даты и времени в его эквивалент DateTime, используя заданный массив форматов",
+                DateTime =DateTime.Now
+            });
         }
+
     }
 }

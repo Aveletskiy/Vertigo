@@ -6,8 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="50 10 50 10" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="90" />
+        </Style>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="outputBlock" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="startButton" Content="Start" Click="Start_Click" />
+            <Button Name="stopButton" IsEnabled="False" Content="Stop" Click="Stop_Click"  />
+        </StackPanel>
     </Grid>
 </Page>
